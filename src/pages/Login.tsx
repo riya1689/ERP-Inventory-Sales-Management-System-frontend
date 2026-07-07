@@ -35,7 +35,8 @@ export const Login = () => {
     <div className="flex min-h-screen items-center justify-center bg-slate-50 p-4">
       <div className="w-full max-w-md rounded-2xl bg-white p-8 shadow-xl">
         <div className="mb-8 text-center">
-          <h1 className="text-3xl font-bold text-slate-900">Mini ERP</h1>
+          <h1 className="text-3xl font-bold text-slate-900">ERP</h1>
+          <h5 className="text-md font-bold text-slate-900">Inventory and Sales Management System</h5>
           <p className="mt-2 text-sm text-slate-500">Sign in to your account to continue</p>
         </div>
 
