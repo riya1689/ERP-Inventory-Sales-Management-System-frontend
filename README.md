@@ -17,7 +17,7 @@ A full-stack, comprehensive, and role-based POS (Point of Sale), Inventory, and 
 
 ---
 
-## 🚀 Running the Project Locally (Without Docker)
+##  Running the Project Locally (Without Docker)
 
 ### Prerequisites
 - Node.js (v18 or v20)
@@ -67,7 +67,7 @@ A full-stack, comprehensive, and role-based POS (Point of Sale), Inventory, and 
 
 ---
 
-## 🐳 Running with Docker (Recommended for Testing Full Project)
+##  Running with Docker (Recommended for Testing Full Project)
 
 If you want to run the full project (Database, Backend, and Frontend) instantly on a single machine, we have provided a root-level `docker-compose.yml`. 
 
@@ -83,7 +83,7 @@ If you want to run the full project (Database, Backend, and Frontend) instantly 
 
 ---
 
-## 🛠️ Deploying Separately (Vercel, Render, Railway, etc.)
+##  Deploying Separately (Vercel, Render, Railway, etc.)
 
 Because the Frontend and Backend are decoupled, you do **not** need the `docker-compose.yml` for production deployments if you are using platforms like Vercel or Render.
 
@@ -92,20 +92,3 @@ Because the Frontend and Backend are decoupled, you do **not** need the `docker-
 
 ---
 
-## 📦 Database Seeding
-
-To quickly populate the database with realistic FPV Drone components, customers, and sales history (for Dashboard charts), run the seeder script from the `backend/` directory:
-
-```bash
-cd backend
-npx ts-node seedAll.ts
-```
-
-This will create test users. **Admin Login Details:**
-- **Email:** `admin@erp.com`
-- **Password:** `password123`
-
----
-
-## API Documentation
-Please import the provided `api-collection.json` into Postman or Insomnia to view all available endpoints, their required payloads, and authorization headers.
