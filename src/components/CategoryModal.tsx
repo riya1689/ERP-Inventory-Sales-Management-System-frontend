@@ -114,7 +114,7 @@ export const CategoryModal: React.FC<CategoryModalProps> = ({ isOpen, onClose })
             ) : categories?.length === 0 ? (
               <p className="text-center text-slate-500 py-4">No categories found.</p>
             ) : (
-              categories?.map((cat) => (
+              categories?.map((cat: any) => (
                 <div key={cat._id} className="flex items-center justify-between p-3 bg-slate-50 border border-slate-200 rounded-lg group">
                   {editingId === cat._id ? (
                     <input

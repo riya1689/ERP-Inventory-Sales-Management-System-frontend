@@ -16,7 +16,7 @@ export const Login = () => {
       const response = await api.post('/users/login', { email, password });
       return response.data;
     },
-    onSuccess: (data) => {
+    onSuccess: (data: any) => {
       login(data.data.user, data.token);
       navigate('/dashboard');
     },

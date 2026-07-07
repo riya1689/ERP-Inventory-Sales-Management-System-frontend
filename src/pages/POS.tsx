@@ -95,7 +95,7 @@ export const POS = () => {
       const response = await api.post('/sales', saleData);
       return response.data;
     },
-    onSuccess: (data) => {
+    onSuccess: (data: any) => {
       alert(`Sale completed successfully! Invoice: ${data.data.sale.invoiceNumber}`);
       setCart([]);
       setDiscount(0);

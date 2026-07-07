@@ -29,7 +29,7 @@ export const SalesHistory = () => {
             onClick={() => navigate('/pos')}
             className="flex items-center gap-2 rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white hover:bg-indigo-500 transition-colors"
           >
-            Go to Creat Sale
+            Go to Create Sale
           </button>
         </div>
 
