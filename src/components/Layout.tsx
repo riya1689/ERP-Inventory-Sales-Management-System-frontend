@@ -52,7 +52,7 @@ export const Layout = () => {
         <div className="p-6">
           <h1 className="text-2xl font-bold flex items-center gap-2 text-indigo-400">
             <TrendingUp />
-            Mini ERP
+            ERP
           </h1>
           <p className="text-sm text-slate-400 mt-1">Inventory & Sales</p>
         </div>
