@@ -33,7 +33,7 @@ export const Login = () => {
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-slate-50 p-4">
-      <div className="w-full max-w-md rounded-2xl bg-white p-8 shadow-xl">
+      <div className="w-full max-w-md rounded-2xl bg-white p-8 shadow-[0_0_40px_rgba(0,0,0,0.15)]">
         <div className="mb-8 text-center">
           <h1 className="text-3xl font-bold text-slate-900">ERP</h1>
           <h5 className="text-md font-bold text-slate-900">Inventory and Sales Management System</h5>
