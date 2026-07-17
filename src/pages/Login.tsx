@@ -12,8 +12,9 @@ export const Login = () => {
   const { login } = useAuth();
 
   const loginMutation = useMutation({
-    mutationFn: async () => {
-      const response = await api.post('/users/login', { email, password });
+    mutationFn: async (credentials?: { email: string; password: string }) => {
+      const payload = (credentials && credentials.email) ? credentials : { email, password };
+      const response = await api.post('/users/login', payload);
       return response.data;
     },
     onSuccess: (data: any) => {
@@ -28,7 +29,19 @@ export const Login = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
-    loginMutation.mutate();
+    loginMutation.mutate(undefined);
+  };
+
+  const handleDemoLogin = (role: 'admin' | 'manager' | 'employee') => {
+    setError('');
+    
+    const credentials = {
+      admin: { email: 'admin@demo.com', password: 'demoPassword123' },
+      manager: { email: 'manager@demo.com', password: 'demoPassword123' },
+      employee: { email: 'employee@demo.com', password: 'demoPassword123' }
+    };
+    
+    loginMutation.mutate(credentials[role]);
   };
 
   return (
@@ -79,6 +92,44 @@ export const Login = () => {
             {loginMutation.isPending ? 'Signing in...' : 'Sign in'}
           </button>
         </form>
+
+        <div className="mt-6 text-center">
+          <div className="relative">
+            <div className="absolute inset-0 flex items-center">
+              <div className="w-full border-t border-slate-300"></div>
+            </div>
+            <div className="relative flex justify-center text-sm">
+              <span className="bg-white px-2 text-slate-500">or login as</span>
+            </div>
+          </div>
+          
+          <div className="mt-6 flex justify-center gap-3">
+            <button
+              type="button"
+              onClick={() => handleDemoLogin('admin')}
+              disabled={loginMutation.isPending}
+              className="flex-1 rounded-lg bg-slate-100 px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-200 transition-colors border border-slate-200"
+            >
+              Demo Admin
+            </button>
+            <button
+              type="button"
+              onClick={() => handleDemoLogin('manager')}
+              disabled={loginMutation.isPending}
+              className="flex-1 rounded-lg bg-slate-100 px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-200 transition-colors border border-slate-200"
+            >
+              Demo Manager
+            </button>
+            <button
+              type="button"
+              onClick={() => handleDemoLogin('employee')}
+              disabled={loginMutation.isPending}
+              className="flex-1 rounded-lg bg-slate-100 px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-200 transition-colors border border-slate-200"
+            >
+              Demo Employee
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );

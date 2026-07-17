@@ -7,8 +7,8 @@ import {
   List
 } from 'lucide-react';
 import {
-  AreaChart,
-  Area,
+  LineChart,
+  Line,
   XAxis,
   YAxis,
   CartesianGrid,
@@ -62,16 +62,10 @@ export const Dashboard = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Revenue Chart */}
           <div className="lg:col-span-2 rounded-xl bg-white p-6 shadow-sm border border-slate-200">
-            <h3 className="mb-6 text-lg font-bold text-slate-900">Revenue Overview (Last 8 Days)</h3>
+            <h3 className="mb-6 text-lg font-bold text-slate-900">Revenue Overview (Jul 2026 - Current)</h3>
             <div className="h-80">
               <ResponsiveContainer width="100%" height="100%">
-                <AreaChart data={data?.chartData || []}>
-                  <defs>
-                    <linearGradient id="colorRevenue" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="5%" stopColor="#4f46e5" stopOpacity={0.3}/>
-                      <stop offset="95%" stopColor="#4f46e5" stopOpacity={0}/>
-                    </linearGradient>
-                  </defs>
+                <LineChart data={data?.chartData || []}>
                   <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e2e8f0" />
                   <XAxis 
                     dataKey="name" 
@@ -91,15 +85,15 @@ export const Dashboard = () => {
                     contentStyle={{ borderRadius: '8px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }}
                     formatter={(value: any) => [`৳${value}`, 'Revenue']}
                   />
-                  <Area 
+                  <Line 
                     type="monotone" 
                     dataKey="revenue" 
                     stroke="#4f46e5" 
                     strokeWidth={3}
-                    fillOpacity={1} 
-                    fill="url(#colorRevenue)" 
+                    dot={{ r: 4, strokeWidth: 2, fill: '#fff', stroke: '#4f46e5' }}
+                    activeDot={{ r: 6, strokeWidth: 2, fill: '#4f46e5', stroke: '#fff' }}
                   />
-                </AreaChart>
+                </LineChart>
               </ResponsiveContainer>
             </div>
           </div>
