@@ -12,8 +12,11 @@ export const Login = () => {
   const { login } = useAuth();
 
   const loginMutation = useMutation({
-    mutationFn: async (credentials?: { email: string; password: string }) => {
-      const payload = (credentials && credentials.email) ? credentials : { email, password };
+    mutationFn: async (credentials?: { email?: string; password?: string }) => {
+      const payload = {
+        email: credentials?.email || email,
+        password: credentials?.password || password
+      };
       const response = await api.post('/users/login', payload);
       return response.data;
     },
@@ -29,7 +32,7 @@ export const Login = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
-    loginMutation.mutate(undefined);
+    loginMutation.mutate({ email, password });
   };
 
   const handleDemoLogin = (role: 'admin' | 'manager' | 'employee') => {
@@ -41,7 +44,11 @@ export const Login = () => {
       employee: { email: 'employee@demo.com', password: 'demoPassword123' }
     };
     
-    loginMutation.mutate(credentials[role]);
+    const selectedCreds = credentials[role];
+    setEmail(selectedCreds.email);
+    setPassword(selectedCreds.password);
+    
+    loginMutation.mutate(selectedCreds);
   };
 
   return (
