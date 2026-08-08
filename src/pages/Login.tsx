@@ -52,8 +52,30 @@ export const Login = () => {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-slate-50 p-4">
-      <div className="w-full max-w-md rounded-2xl bg-white p-8 shadow-[0_0_40px_rgba(0,0,0,0.15)]">
+    <div className="flex min-h-screen bg-slate-50">
+      {/* Left Column - Illustration */}
+      <div className="hidden lg:flex lg:flex-col lg:w-1/2 p-12 items-center justify-center">
+        <div className="w-full flex-1 relative flex items-center justify-center max-h-[70vh]">
+          <img 
+            src="https://www.image2url.com/r2/default/images/1786197717811-09705ad5-371d-48d9-920a-9cb5b8bba6df.png" 
+            alt="ERP System Illustration" 
+            className="max-w-full max-h-full object-contain drop-shadow-xl"
+          />
+        </div>
+        <div className="mt-10 text-center max-w-md">
+          <h2 className="text-3xl font-bold text-slate-800 tracking-tight">
+            Seamless Inventory & Sales
+          </h2>
+          <p className="mt-3 text-slate-600 font-medium">
+            Take complete control of your business operations with our intelligent, unified ERP platform.
+          </p>
+        </div>
+      </div>
+
+
+      {/* Right Column - Login Form */}
+      <div className="flex w-full lg:w-1/2 items-center justify-center p-4 sm:p-8">
+        <div className="w-full max-w-md rounded-2xl bg-white p-8 sm:p-10 shadow-[0_0_40px_rgba(0,0,0,0.08)] border border-slate-100">
         <div className="mb-8 text-center">
           <h1 className="text-3xl font-bold text-slate-900">ERP</h1>
           <h5 className="text-md font-bold text-slate-900">Inventory and Sales Management System</h5>
@@ -138,6 +160,7 @@ export const Login = () => {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 };
